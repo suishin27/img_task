@@ -1,0 +1,26 @@
+<!--<div class="row">
+  <div class = "col-md-4" ></div>
+  <div class = "col-xs-12 col-md-4" >-->
+    <%= form_with(model: @blog, local: true,url: choose_new_or_edit ) do |form| %>
+    <% if @blog.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+        <ul>
+        
+        <% @blog.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.text_field :content, class:'form-control' %>
+    </div>    
+
+    <%= form.submit "投稿" , :class=>"btn btn-info"%>
+    <%= link_to '一覧にもどる', blogs_path, class: "btn btn-info"%>
+  <% end %>
+  <!--</div>
+  <div class = "col-md-4" ></div>
+</div>-->

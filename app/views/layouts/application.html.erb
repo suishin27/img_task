@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FavoriteTask</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    
+    <div class="container-fluid">
+      <header>
+        <ul class="nav nav-tabs">
+          <% if logged_in? %>
+            <li><%= link_to 'TOP', root_path %></li>
+            <li><%= link_to '投稿', new_blog_path %></li>
+            <li><%= link_to '一覧', blogs_path %></li>
+            <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+            <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'TOP', root_path %></li>
+            <li><%= link_to "アカウント作成", new_user_path %></li>
+            <li><%= link_to "ログインする", new_session_path %></li>
+          
+          <% end %>
+            
+        </ul>
+          
+      </header>
+    </div>
+    
+    <div class="row">
+      <div class = "col-md-4" ></div>
+      <div class = "col-xs-12 col-md-4" >
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        <%= yield %>
+
+      </div>
+      <div class = "col-md-4" ></div>
+      <footer>
+        <p>1月期　小野貴裕</p>
+      </footer>
+
+  </body>
+</html>
