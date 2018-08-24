@@ -3,6 +3,6 @@ class ContactMailer < ApplicationMailer
     #以下編集
     @user = user
     
-    mail to: user.mail, subject: "投稿完了のお知らせ"
+    mail to: user.email, subject: "投稿完了のお知らせ"
   end
 end
