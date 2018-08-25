@@ -1,6 +1,7 @@
 <h1>詳細</h1>
 
 <p>内容: <%= @blog.content %></p>
+<p><%= image_tag @blog.blog_img %></p>
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
@@ -8,7 +9,5 @@
     <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-
-
 
 <%= link_to '戻る', :back , class: "btn btn-info"%>

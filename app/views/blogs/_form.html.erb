@@ -16,7 +16,12 @@
 
     <div class="form-group">
       <%= form.text_field :content, class:'form-control' %>
-    </div>    
+    </div>
+    <div class="field">
+      <%= form.label :画像も入れてね %>
+      <%= image_tag(@blog.blog_img.url) if @blog.blog_img.url %>
+      <%= form.file_field :blog_img, id: :blog_img %>
+    </div>
 
     <%= form.submit "投稿" , :class=>"btn btn-info"%>
     <%= link_to '一覧にもどる', blogs_path, class: "btn btn-info"%>
