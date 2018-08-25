@@ -20,7 +20,7 @@
     <div class="field">
       <%= form.label :画像も入れてね %>
       <%= image_tag(@blog.blog_img.url) if @blog.blog_img.url %>
-      <%= form.file_field :blog_img, id: :blog_img %>
+      <%= form.file_field :blog_img%>
     </div>
 
     <%= form.submit "投稿" , :class=>"btn btn-info"%>
