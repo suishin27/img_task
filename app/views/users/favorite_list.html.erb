@@ -1,0 +1,9 @@
+<p>＜お気に入り一覧＞</p>
+
+<table align="center">
+  <% @blogs.each do |blog| %>
+    <tr><td>投稿者：<%= User.find(blog.user_id).name %></td></tr>
+    <tr><td><%= image_tag blog.blog_img %></td></tr>
+    <tr><td><%= blog.content %></td></tr>
+  <% end %>
+</table>

@@ -18,6 +18,9 @@ class UsersController < ApplicationController
      @favorites_blogs = @user.favorite_blogs
   end
   
+  def favorite_list
+    @blogs = Blog.all
+  end
 
   
   
@@ -28,6 +31,6 @@ class UsersController < ApplicationController
                                  :password_confirmation, :user_img)
   end
   
-
+  
   
 end

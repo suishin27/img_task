@@ -1,0 +1,7 @@
+<p>＜お気に入り一覧＞</p>
+
+<table align="center">
+  <% @favorites_blogs.each do |blog| %>
+    <tr><td><%= blog.content %></td></tr>
+  <% end %>
+</table>

@@ -6,26 +6,27 @@
 
     <table>
       <tr>
-        <th>内容</th><th></th><th></th><th></th>
+        <th>内容</th><th>投稿者</th><th></th><th></th>
       </tr>
 
-
+      <tr>
       <% @blogs.each do |blog| %>
         <div class="btn-group" role="group" aria-label="btn">
-
             <td><%= blog.content %></td>
+            <td><%= User.find(blog.user_id).name %></td>
             <td><button type="button" class="btn btn-default"><%= link_to "詳細", blog_path(blog.id) %></button></td>
             <% if blog.user_id == current_user.id %>
-            
               <td><button type="button" class="btn btn-default"><%= link_to "編集", edit_blog_path(blog.id) %></button></td>
               <td><button type="button" class="btn btn-default"><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></button></td>
             <% else %>
               <td></td>
               <td></td>
             <% end %>
-          </tr>
+          
         </div>
+      </tr>  
       <% end %>
+      
     </table>
     <br>
     <%= link_to '投稿する', new_blog_path , class: "btn btn-info" %>
