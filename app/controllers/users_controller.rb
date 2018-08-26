@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :favorite_list]
   def new
     @user = User.new
   end
@@ -14,12 +15,9 @@ class UsersController < ApplicationController
   end
   
   def show
-     @user = User.find(params[:id])
-     @favorites_blogs = @user.favorite_blogs
   end
   
   def favorite_list
-    @blogs = Blog.all
   end
 
   
@@ -31,6 +29,9 @@ class UsersController < ApplicationController
                                  :password_confirmation, :user_img)
   end
   
-  
+  def set_user
+    @user = User.find(params[:id])
+    @favorites_blogs = @user.favorite_blogs
+  end
   
 end
